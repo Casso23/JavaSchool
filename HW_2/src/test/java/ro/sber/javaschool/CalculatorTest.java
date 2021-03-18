@@ -5,7 +5,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-public class ApplicationTest {
+public class CalculatorTest {
     @Test
     public void summation() {
         Calculator calculator=new Calculator();
