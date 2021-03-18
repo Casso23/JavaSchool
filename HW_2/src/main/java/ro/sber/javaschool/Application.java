@@ -14,7 +14,7 @@ public class Application {
         if(operation.equals(-1)){
             return;
         }
-        Double result = 0d;
+        double result = 0d;
         System.out.println(operations.get(operation));
         switch (operation){
             case 0:

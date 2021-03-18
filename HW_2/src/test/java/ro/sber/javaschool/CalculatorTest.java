@@ -11,8 +11,8 @@ public class CalculatorTest {
         Calculator calculator=new Calculator();
         calculator.setA(8d);
         calculator.setB(4d);
-        Double exp = 12d;
-        Assert.assertEquals(exp,calculator.summation());
+        double exp = 12d;
+        Assert.assertTrue(exp==calculator.summation());
     }
 
     @Test
@@ -20,8 +20,8 @@ public class CalculatorTest {
         Calculator calculator=new Calculator();
         calculator.setA(8d);
         calculator.setB(3d);
-        Double exp = 5d;
-        Assert.assertEquals(exp,calculator.subtraction());
+        double exp = 5d;
+        Assert.assertTrue(exp==calculator.subtraction());
     }
 
     @Test
@@ -29,8 +29,8 @@ public class CalculatorTest {
         Calculator calculator=new Calculator();
         calculator.setA(8d);
         calculator.setB(4d);
-        Double exp = 32d;
-        Assert.assertEquals(exp,calculator.multiplying());
+        double exp = 32d;
+        Assert.assertTrue(exp==calculator.multiplying());
     }
 
     @Test
@@ -38,17 +38,17 @@ public class CalculatorTest {
         Calculator calculator=new Calculator();
         calculator.setA(8d);
         calculator.setB(4d);
-        Double exp = 2d;
-        Assert.assertEquals(exp,calculator.dividing());
+        double exp = 2d;
+        Assert.assertTrue(exp==calculator.dividing());
     }
 
     @Test
     public void square() {
         Calculator calculator=new Calculator();
         calculator.setA(3969d);
-        Double exp = 63d;
+        double exp = 63d;
 
-        Assert.assertEquals(exp,calculator.square());
+        Assert.assertTrue(exp==calculator.square());
     }
 
     @Test
@@ -56,8 +56,7 @@ public class CalculatorTest {
         Calculator calculator=new Calculator();
         calculator.setA(5d);
         calculator.setB(3d);
-
-        Assert.assertEquals(calculator.getA(),calculator.max());
+        Assert.assertTrue(calculator.getA()==calculator.max());
     }
 
     @Test
@@ -66,6 +65,6 @@ public class CalculatorTest {
         calculator.setA(5d);
         calculator.setB(3d);
 
-        Assert.assertEquals(calculator.getB(),calculator.min());
+        Assert.assertTrue(calculator.getB()==calculator.min());
     }
 }

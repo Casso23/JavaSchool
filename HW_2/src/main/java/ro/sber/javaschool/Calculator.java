@@ -7,31 +7,31 @@ import lombok.experimental.Accessors;
 @Data
 @Accessors(chain = true)
 public class Calculator {
-    private Double a;
-    private Double b;
+    private double a;
+    private double b;
 
-    public Double summation(){
+    public double summation(){
         return a+b;
     }
-    public Double subtraction(){
+    public double subtraction(){
         return a-b;
     }
-    public Double multiplying(){
+    public double multiplying(){
         return a*b;
     }
-    public Double dividing(){
-        if(b.equals(0d)){
+    public double dividing(){
+        if(b==0d){
             System.out.println("Ошибка: деление на 0");
         }
         return a/b;
     }
-    public Double square(){
+    public double square(){
         return Math.sqrt(a);
     }
-    public Double max(){
+    public double max(){
         return Math.max(a,b);
     }
-    public Double min(){
+    public double min(){
         return Math.min(a,b);
     }
 
