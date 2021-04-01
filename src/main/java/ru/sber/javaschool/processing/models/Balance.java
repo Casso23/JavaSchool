@@ -9,9 +9,4 @@ public class Balance {
     public enum Currency {USD,EUR, RUB}
     private Double balance;
     private Currency currency;
-
-    @Override
-    public String toString(){
-        return balance.toString()+" "+currency.toString();
-    }
 }

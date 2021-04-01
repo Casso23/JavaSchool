@@ -17,16 +17,8 @@ public class Operation implements Authorization {
     }
 
     @Override
-    public Status authorization(Long cardNum, String pin) {
-        if(pin.equals("1234")){
-            if(cardNum.equals(4444000000001111L)){
-                return Status.CARD_BLOCKED;
-            }else {
-                return Status.OK;
-            }
-        }else {
-            return Status.INCORRECT_PIN;
-        }
+    public Status authorization(long cardNum, String pin) {
+        return Status.OK;
     }
 
     @Override

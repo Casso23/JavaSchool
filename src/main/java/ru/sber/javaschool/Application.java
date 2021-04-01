@@ -6,10 +6,7 @@ import java.util.Scanner;
 
 public class Application {
     public static void main(String[] args) {
-        System.out.println("Карты:\r\n" +
-                "4444000000001111 - просроченная (ПИН 1234)\r\n" +
-                "4444000000002222 - действующая (ПИН 1234)\r\n" +
-                "Введите карту:");
+        System.out.println("Введите карту:");
         Scanner scanner = new Scanner(System.in);
         if (scanner.hasNextLong()){
             long cardNumber = scanner.nextLong();

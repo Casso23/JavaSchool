@@ -9,10 +9,7 @@ public class OperationBalance extends Operation{
 
     public ru.sber.javaschool.processing.models.Balance execute() throws IllegalAccessException {
         if(this.getStatus().equals(Status.OK)) {
-            ru.sber.javaschool.processing.models.Balance balance = new ru.sber.javaschool.processing.models.Balance();
-            balance.setBalance(9000.77D);
-            balance.setCurrency(Balance.Currency.RUB);
-            return balance;
+            return new ru.sber.javaschool.processing.models.Balance();
         }else {
             throw new IllegalAccessException();
         }
