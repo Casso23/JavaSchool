@@ -3,22 +3,22 @@ package ru.sber.javaschool.processing.operations;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Data
 @Accessors(chain = true)
 public class Operation implements Authorization {
-    private Date operationTime;
-    private Status status;
+    private LocalDateTime operationTime;
+    private StatusAuthorization status;
 
     public Operation(long cardNumber, String pin){
-        this.operationTime = new Date();
-        this.status = authorization(cardNumber,pin);
+        operationTime = LocalDateTime.now();
+        status = authorization(cardNumber,pin);
     }
 
     @Override
-    public Status authorization(long cardNum, String pin) {
-        return Status.OK;
+    public StatusAuthorization authorization(long cardNum, String pin) {
+        return StatusAuthorization.SUCCESS;
     }
 
     @Override

@@ -1,6 +1,8 @@
 package ru.sber.javaschool;
 
 import ru.sber.javaschool.processing.models.Balance;
+import ru.sber.javaschool.session.Session;
+import ru.sber.javaschool.session.Status;
 
 import java.util.Scanner;
 
@@ -14,7 +16,7 @@ public class Application {
             String pin = scanner.next();
 
             Session session = new Session(cardNumber, pin);
-            if(session.getSessionStatus().equals(Session.Status.OPEN)){
+            if(session.getSessionStatus()== Status.OPENED){
                 System.out.println("Введите номер операции:\r\n1 - Узнать баланс");
                 if(scanner.hasNextInt()) {
                     Integer operationNumber = scanner.nextInt();
