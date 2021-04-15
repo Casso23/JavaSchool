@@ -5,9 +5,8 @@ import lombok.experimental.Accessors;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
-@Data
-@Accessors(chain = true)
 public class Customer {
     private long id;
     private String name;
@@ -21,8 +20,15 @@ public class Customer {
         accounts.add(account);
     }
 
-
     public boolean checkCard(String cardNumber) {
         return accounts.stream().anyMatch((p)->p.checkCard(cardNumber));
+    }
+
+    public List<Account> getAccountsByCard(String cardNumber){
+        return accounts.stream().filter((p)->p.checkCard(cardNumber)).collect(Collectors.toList());
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

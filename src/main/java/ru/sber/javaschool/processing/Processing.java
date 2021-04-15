@@ -88,7 +88,7 @@ public class Processing {
     }
 
     private boolean searchAccount(String cardNumber, String pin){
-        List<Account> accounts = currentCustomer.getAccounts().stream().filter((p)->p.getCards().containsKey(cardNumber)).collect(Collectors.toList());
+        List<Account> accounts = currentCustomer.getAccountsByCard(cardNumber);
         if(accounts.size()<1){
             statusOperation = StatusOperation.ACCOUNT_NOT_FOUND;
             return false;
@@ -102,7 +102,7 @@ public class Processing {
     }
 
     private boolean checkPinAndCardStatus(String cardNumber, String pin){
-        Card card = currentAccount.getCards().get(cardNumber);
+        Card card = currentAccount.getCard(cardNumber);
         if(!card.checkPin(pin)){
             statusOperation = StatusOperation.INCORRECT_PIN;
             return false;
