@@ -1,0 +1,15 @@
+package ru.sber.javaschool.processing;
+
+public enum StatusOperation {
+    UNAUTHORIZED,
+    INVALID_FORMAT_OF_CARD_NUMBER,
+    INVALID_FORMAT_OF_PIN,
+    CUSTOMER_NOT_FOUND,
+    CUSTOMER_FOUND_SEVERAL,
+    ACCOUNT_NOT_FOUND,
+    ACCOUNT_FOUND_SEVERAL,
+    CARD_EXPIRED,
+    CARD_BLOCKED,
+    INCORRECT_PIN,
+    SUCCESS
+}

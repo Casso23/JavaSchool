@@ -2,42 +2,37 @@ package ru.sber.javaschool.session;
 
 import lombok.Data;
 import lombok.experimental.Accessors;
+import ru.sber.javaschool.processing.Processing;
+import ru.sber.javaschool.processing.StatusOperation;
 import ru.sber.javaschool.processing.models.Balance;
-import ru.sber.javaschool.processing.operations.Operation;
-import ru.sber.javaschool.processing.operations.AuthorizationOperation;
-import ru.sber.javaschool.processing.operations.BalanceOperation;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
 @Data
 @Accessors(chain = true)
 public class Session {
 
-    private long cardNumber;
+    private String cardNumber;
     private LocalDateTime startTime;
     private LocalDateTime endTime;
-    private List<Operation> operations = new ArrayList<>();
     private Status sessionStatus = Status.UNAUTHORIZED;
+    private Processing processing;
 
-    public Session (long cardNumber, String pin){
+    public Session (String cardNumber, String pin){
         this.cardNumber = cardNumber;
         startTime = LocalDateTime.now();
         start(pin);
     }
 
     private void start(String pin){
-        AuthorizationOperation authorizationOperation = new AuthorizationOperation(this.cardNumber,pin);
-        operations.add(authorizationOperation);
-        if(authorizationOperation.isAuthorization()){
+        processing = new Processing();
+        processing.authorization(cardNumber,pin);
+        if(processing.getStatusOperation()== StatusOperation.SUCCESS){
             sessionStatus = Status.OPENED;
         }
     }
-    public Balance getBalance(String pin) throws IllegalAccessException {
-        BalanceOperation balanceOperation = new BalanceOperation(this.cardNumber, pin);
-        operations.add(balanceOperation);
-        return balanceOperation.execute();
+    public Balance getBalance(String pin) {
+        return processing.getBalance(cardNumber,pin);
     }
     public void closeSession(){
         sessionStatus = Status.CLOSED;
